@@ -30,7 +30,47 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char text[100], key[100];
+    int i, j = 0;
+
+    printf("Enter Plain Text: ");
+    scanf("%s", text);
+
+    printf("Enter Keyword: ");
+    scanf("%s", key);
+
+    printf("Encrypted Text: ");
+
+    for(i = 0; text[i] != '\0'; i++)
+    {
+        if(isalpha(text[i]))
+        {
+            char p = toupper(text[i]);
+            char k = toupper(key[j % strlen(key)]);
+
+            char c = ((p - 'A') + (k - 'A')) % 26 + 'A';
+
+            printf("%c", c);
+            j++;
+        }
+    }
+
+    return 0;
+}
+
+
+```
 
 ## OUTPUT
+<img width="1566" height="913" alt="image" src="https://github.com/user-attachments/assets/ee7624b4-535c-45d0-8802-eda792074f86" />
 
 ## RESULT
+Thus, the Vigenere Cipher substitution technique was successfully implemented using a C program.
